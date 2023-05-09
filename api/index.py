@@ -19,7 +19,7 @@ def home():
 @app.route('/about')
 def about():
     # Criação do DataFrame Pandas que  recebe a base de dados do arquivo CSV.
-    dataframe_cbmal = pd.read_csv("dataframe_cbmal.csv", sep=",", encoding='UTF-8', index_col=0)
+    dataframe_cbmal = pd.read_csv("api/dataframe_cbmal.csv", sep=",", encoding='UTF-8', index_col=0)
 
     # Acessar site do CBMAL e copiar parte específica da página HTML.
     pagina = []
@@ -73,7 +73,7 @@ def about():
     sem_duplicados = sem_duplicados.reset_index()
     sem_duplicados = sem_duplicados.drop(columns='index')
 
-    sem_duplicados.to_csv("dataframe_cbmal.csv")
+    sem_duplicados.to_csv("api/dataframe_cbmal.csv")
 
     texto = f'O Tamnho atual do arquivo CSV: {len(sem_duplicados)}'
 
